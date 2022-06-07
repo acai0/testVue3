@@ -2,13 +2,14 @@
   <div class="container">
     <br />
     <h3>Catalogue d'applications</h3>
-    <table class="table">
+    <table class="table table-bordereless">
       <thead>
         <tr>
           <th>Intitulé</th>
           <th>Windows</th>
           <th>Ubuntu</th>
           <th>Macos</th>
+          <th></th>
         </tr>
       </thead>
     </table>
@@ -27,7 +28,16 @@
               v-on:click="afficheTab()"
             >
               <!-- <strong>{{ index }} </strong> VLC -->
-              VLC
+              <table class="table table-borderless">
+                <tbody>
+                  <tr>
+                    <td>VLC</td>
+                    <td>VLC</td>
+                    <td>VLC</td>
+                    <td>VLC</td>
+                  </tr>
+                </tbody>
+              </table>
             </button>
           </h2>
           <div
@@ -60,7 +70,6 @@ export default {
   methods: {
     afficheTab() {
       var tableau = `  <table class="table table-condensed">
-      
               <tr>
                 <th>OS</th>
                 <th>Paquet</th>
@@ -75,7 +84,7 @@ export default {
                     data-bs-toggle="tooltip" data-bs-placement="top" title="Windows"
                   ></i>
                 </td>
-                <td>chrome</td>
+                <td>vlc</td>
                 <td><i class="bi bi-unlock-fill"  data-bs-toggle="tooltip" data-bs-placement="top" title="Version maintenue"/>102.0.5005.63</td>
                 <td><code>[--param --verbs]</code></td>
                 <td><code>present</code></td>
@@ -88,7 +97,7 @@ export default {
                      data-bs-toggle="tooltip" data-bs-placement="top" title="Ubuntu/Debian"
                   ></i>
                 </td>
-                <td>chrome</td>
+                <td>vlc</td>
                 <td> <i class="bi bi-arrow-repeat"  data-bs-toggle="tooltip" data-bs-placement="top" title="Mise à jour automatique"/>102.0.5005.63</td>
                 <td></td>
                 <td><code>latest</code></td>
@@ -98,10 +107,10 @@ export default {
                 <td>
                   <i class="bi bi-apple"  data-bs-toggle="tooltip" data-bs-placement="top" title="MacOS"></i>
                 </td>
-                <td>chrome</td>
+                <td>vlc</td>
                 <td> <i class="bi bi-lock-fill"  data-bs-toggle="tooltip" data-bs-placement="top" title="Version non maintenue"/>102.0.5005.61</td>
                 <td></td>
-                <td></td>
+                <td><code>102.0.5005.61</code></td>
               </tr>
               </table>`;
       this.tab = tableau;
@@ -113,3 +122,16 @@ export default {
 // Avec this.$ref, modifier chaque bouton,  méthode qui va dessiner le tableau
 // CHERCHER valeur dans le dom pour modifier
 </script>
+<style scoped>
+table,
+thead,
+tbody {
+  text-align: center;
+  padding: auto;
+  margin: auto;
+}
+.table-bordered {
+  padding: auto;
+  width: 100em/5;
+}
+</style>
