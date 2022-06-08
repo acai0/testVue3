@@ -17,8 +17,8 @@
           /></b-nav-item>
         </b-navbar-nav>
 
-        <b-col md="3" class="position-absolute bottom end-0">
-          <div class="input-group mb-1">
+        <div class="input-group">
+          <ul class="navbar-nav ml-auto">
             <input
               id="myInput"
               type="text"
@@ -27,27 +27,13 @@
               aria-describedby="inputGroup-sizing-default"
               placeholder="Filtrer par tag, nom de paquet, OS, ..."
             />
-            <div class="input-group-prepend">
-              <span class="input-group-text" id="inputGroup-sizing-default">
-                <i class="bi bi-search"></i>
-              </span>
-            </div>
+          </ul>
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">
+              <i class="bi bi-search"></i>
+            </span>
           </div>
-        </b-col>
-
-        <b-col md="8" class="position-absolute bottom end-0">
-          <b-dropdown text="Système d'exploitation">
-            <b-checkbox
-              :disabled="visibleFields.length == 1 && champ.visible"
-              v-for="champ in showFields"
-              :key="champ.key"
-              v-model="champ.visible"
-            >
-              <!-- Affichage du nom des checkbox -->
-              {{ champ.label }}
-            </b-checkbox>
-          </b-dropdown>
-        </b-col>
+        </div>
       </b-container>
     </b-navbar>
   </div>
