@@ -37,7 +37,7 @@
                 v-on:click="afficheTab()"
               >
                 <!-- <strong>{{ index }} </strong> VLC -->
-                <table class="table table-bordered">
+                <table class="table table-borderless">
                   <tbody>
                     <tr>
                       <td>VLC</td>
