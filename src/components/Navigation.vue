@@ -17,7 +17,7 @@
           /></b-nav-item>
         </b-navbar-nav>
 
-        <b-col md="4" class="position-absolute bottom end-0">
+        <b-col md="3" class="position-absolute bottom end-0">
           <div class="input-group mb-1">
             <input
               id="myInput"
@@ -33,6 +33,20 @@
               </span>
             </div>
           </div>
+        </b-col>
+
+        <b-col md="8" class="position-absolute bottom end-0">
+          <b-dropdown text="Système d'exploitation">
+            <b-checkbox
+              :disabled="visibleFields.length == 1 && champ.visible"
+              v-for="champ in showFields"
+              :key="champ.key"
+              v-model="champ.visible"
+            >
+              <!-- Affichage du nom des checkbox -->
+              {{ champ.label }}
+            </b-checkbox>
+          </b-dropdown>
         </b-col>
       </b-container>
     </b-navbar>

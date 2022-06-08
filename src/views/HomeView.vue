@@ -2,52 +2,62 @@
   <div class="container">
     <br />
     <h3>Catalogue d'applications</h3>
-    <table class="table table-bordereless">
-      <thead>
-        <tr>
-          <th>Intitulé</th>
-          <th>Windows</th>
-          <th>Ubuntu</th>
-          <th>Macos</th>
-          <th></th>
-        </tr>
-      </thead>
-    </table>
-    <div v-for="index in 800">
-      <div class="accordion" id="accordionFlushExample">
+    <div class="container">
+      <div class="accordion accordion-flush" id="accordionFlushExample">
         <div class="accordion-item">
           <h2 class="accordion-header" id="myTable">
-            <button
-              :id="'b' + index + 'b'"
-              class="accordion-button collapsed"
-              type="button"
-              data-bs-toggle="collapse"
-              v-bind:data-bs-target="'#a' + index"
-              v-bind:aria-controls="index"
-              aria-expanded="false"
-              v-on:click="afficheTab()"
-            >
-              <!-- <strong>{{ index }} </strong> VLC -->
-              <table class="table table-borderless">
-                <tbody>
+            <button id="no" class="accordion-button collapsed" disabled>
+              <table class="table table-borderless" id="example">
+                <thead>
                   <tr>
-                    <td>VLC</td>
-                    <td>VLC</td>
-                    <td>VLC</td>
-                    <td>VLC</td>
+                    <th>Intitulé</th>
+                    <th>Windows</th>
+                    <th>Ubuntu</th>
+                    <th>Macos</th>
                   </tr>
-                </tbody>
+                </thead>
               </table>
             </button>
           </h2>
-          <div
-            v-bind:id="'a' + index"
-            class="accordion-collapse collapse"
-            :aria-labelledby="'a' + index"
-            data-bs-parent="#accordionFlushExample"
-          >
-            <div class="accordion-body">
-              <div v-html="tab"></div>
+        </div>
+      </div>
+
+      <div v-for="index in 800">
+        <div class="accordion" id="accordionFlushExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="myTable">
+              <button
+                :id="'b' + index + 'b'"
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                v-bind:data-bs-target="'#a' + index"
+                v-bind:aria-controls="index"
+                aria-expanded="false"
+                v-on:click="afficheTab()"
+              >
+                <!-- <strong>{{ index }} </strong> VLC -->
+                <table class="table table-bordered">
+                  <tbody>
+                    <tr>
+                      <td>VLC</td>
+                      <td>VLC</td>
+                      <td>VLC</td>
+                      <td>VLC</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </button>
+            </h2>
+            <div
+              v-bind:id="'a' + index"
+              class="accordion-collapse collapse"
+              :aria-labelledby="'a' + index"
+              data-bs-parent="#accordionFlushExample"
+            >
+              <div class="accordion-body">
+                <div v-html="tab"></div>
+              </div>
             </div>
           </div>
         </div>
@@ -129,9 +139,18 @@ tbody {
   text-align: center;
   padding: auto;
   margin: auto;
+  width: 1296px;
 }
 .table-bordered {
   padding: auto;
   width: 100em/5;
+}
+
+th {
+  width: 328.25px;
+}
+/* Custom style */
+#no::after {
+  background-image: none;
 }
 </style>
