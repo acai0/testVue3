@@ -1,19 +1,20 @@
 <template>
-  <div class="about">
-    <button @click="count++">Count is: {{ count }}</button>
+  <div>
+    <multiselect v-model="selected" :options="options"> </multiselect>
   </div>
 </template>
+
 <script>
+import Multiselect from "vue-multiselect";
 export default {
+  components: { Multiselect },
   data() {
     return {
-      count: 0,
+      selected: null,
+      options: ["list", "of", "options"],
     };
   },
 };
 </script>
-<style scoped>
-button {
-  font-weight: bold;
-}
-</style>
+
+<style src="vue-multiselect/dist/vue-multiselect.min.css"></style>
