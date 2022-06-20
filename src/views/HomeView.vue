@@ -153,4 +153,7 @@ th {
 #no::after {
   background-image: none;
 }
+code {
+  color: grey;
+}
 </style>

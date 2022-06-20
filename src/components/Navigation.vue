@@ -20,15 +20,15 @@
           <ul class="navbar-nav">
             <li class="nav-item">
               <b-dropdown variant="light" text="Système d'exploitation">
-                <b-checkbox
-                  :disabled="visibleFields.length == 1 && champ.visible"
-                  v-for="champ in showFields"
-                  :key="champ.key"
-                  v-model="champ.visible"
-                >
+                <!--<div v-for="grpack in grpacks" :key="grpack.id"> -->
+                <!-- <div v-for="(grpack, index) in grpack.packages" :key="index"> -->
+                <b-form-checkbox id="windows">
                   <!-- Affichage du nom des checkbox -->
-                  {{ champ.label }}
-                </b-checkbox>
+                  <!-- {{ grpack.os }} -->
+                  Windows
+                </b-form-checkbox>
+                <b-form-checkbox id="ubuntu"> Ubuntu/ Debian </b-form-checkbox>
+                <b-form-checkbox id="macos"> MacOs</b-form-checkbox>
               </b-dropdown>
             </li>
             <li class="nav-item">
@@ -56,12 +56,24 @@
 // Fonction pour filtrer des noms
 $(document).ready(function () {
   $("#myInput").on("keyup", function () {
-    var value = $(this).val().toLowerCase();
-    $("#myTable button").filter(function () {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+    var unicode = event.charCode ? event.charCode : event.keyCode;
+    if (unicode == 27) {
+      $(this).val("");
+    }
+    var searchKey = $(this).val().toLowerCase();
+    $(".accordion-button").each(function () {
+      var cellText = $(this).text().toLowerCase();
+
+      if (cellText.indexOf(searchKey) >= 0) {
+        $(this).parent().parent().show();
+      } else {
+        $(this).parent().parent().hide();
+        $(".accordion-body.in").collapse("hide");
+      }
     });
   });
 });
+
 export default {
   name: "Header",
   data() {
