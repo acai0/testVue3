@@ -53,15 +53,28 @@
   </div>
 </template>
 <script>
-// Fonction pour filtrer des noms
+// Filtrer button
 $(document).ready(function () {
   $("#myInput").on("keyup", function () {
-    var unicode = event.charCode ? event.charCode : event.keyCode;
-    if (unicode == 27) {
-      $(this).val("");
-    }
     var searchKey = $(this).val().toLowerCase();
     $(".accordion-button").each(function () {
+      var cellText = $(this).text().toLowerCase();
+
+      if (cellText.indexOf(searchKey) >= 0) {
+        $(this).parent().parent().show();
+      } else {
+        $(this).parent().parent().hide();
+        $(".accordion-body.in").collapse("hide");
+      }
+    });
+  });
+});
+
+// Filtrage accordion body
+$(document).ready(function () {
+  $("#myInput").on("keyup", function () {
+    var searchKey = $(this).val().toLowerCase();
+    $(".accordion-body").each(function () {
       var cellText = $(this).text().toLowerCase();
 
       if (cellText.indexOf(searchKey) >= 0) {
@@ -77,13 +90,7 @@ $(document).ready(function () {
 export default {
   name: "Header",
   data() {
-    return {
-      champs: [
-        { key: "windows", label: "Windows", visible: false },
-        { key: "ubuntu", label: "Ubuntu", visible: false },
-        { key: "macos", label: "MacOS", visible: false },
-      ],
-    };
+    return {};
   },
 };
 </script>
