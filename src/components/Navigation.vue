@@ -22,13 +22,15 @@
               <b-dropdown variant="light" text="Système d'exploitation">
                 <!--<div v-for="grpack in grpacks" :key="grpack.id"> -->
                 <!-- <div v-for="(grpack, index) in grpack.packages" :key="index"> -->
-                <b-form-checkbox id="windows">
+                <b-form-checkbox v-model="checkedW">
                   <!-- Affichage du nom des checkbox -->
                   <!-- {{ grpack.os }} -->
                   Windows
                 </b-form-checkbox>
-                <b-form-checkbox id="ubuntu"> Ubuntu/ Debian </b-form-checkbox>
-                <b-form-checkbox id="macos"> MacOs</b-form-checkbox>
+                <b-form-checkbox v-model="checkedU">
+                  Ubuntu/ Debian
+                </b-form-checkbox>
+                <b-form-checkbox v-model="checkedM"> MacOs</b-form-checkbox>
               </b-dropdown>
             </li>
             <li class="nav-item">
@@ -86,11 +88,35 @@ $(document).ready(function () {
     });
   });
 });
+/*
+$(document).ready(function(){
+  $(".checkbox").attr("checkedW",false).click(function(){
+    if
+  })
+})
+*/
 
 export default {
   name: "Header",
   data() {
-    return {};
+    return {
+      checkedW: true,
+      checkedU: true,
+      checkedM: true,
+    };
+  },
+  methods: {
+    /*
+    hide() {
+      if ((this.checked = false)) {
+
+      } */
+    /*
+      this.checkedW = !this.checkedW;
+      this.checkedU = !this.checkedU;
+      this.checkedM = !this.checkedM;
+      
+    },*/
   },
 };
 </script>
